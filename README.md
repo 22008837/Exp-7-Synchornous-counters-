@@ -67,51 +67,54 @@ RegisterNumber:  212222110032
 
 ### UP Counter
 ```
-module sync(clk,A);
+module upcounter(clk,A);
 input clk;
-output reg [0:2]A;
+output reg[0:3]A;
 always@(posedge clk)
 begin
-    A[0]=(((A[1])&(A[2]))^A[0]);
-	 A[1]=(A[2])^(A[1]);
-	 A[2]=1^A[2];
-end 
+		A[0]=((((A[1])&(A[2]))&A[3])^A[0]);
+		A[1]=(((A[2])&(A[3]))^A[1]);
+		A[2]=((A[3])^A[2]);
+		A[3]=1^A[3];
+end
 endmodule
 ```
 ### Down counter
 ```
-module exp6a(clk,A);
+module downcounter(clk,A);
 input clk;
-output reg [0:2]A;
+output reg[0:3]A;
 always@(posedge clk)
 begin
-    A[0]=(((~A[1])&(~A[2]))^(A[0]));
-	 A[1]=(~A[2])^(A[1]);
-	 A[2]=1^A[2];
-end 
-endmodule 
+	A[0]=((((~A[1])&(~A[2])&(~A[3]))^A[0]);
+	A[1]=(((~A[2])&(~A[3]))^A[1]);
+	A[2]=((~A[3])^A[2]);
+	A[3]=1^A[3];
+end
+endmodule
 ```
 */
 
 ### RTL LOGIC UP COUNTER AND DOWN COUNTER  
 
 ### Up counter
-![image](https://github.com/22008837/Exp-7-Synchornous-counters-/assets/120194155/3dedabe0-41de-4341-b1ef-8e5db3a7bf9f)
+![image](https://github.com/22008837/Exp-7-Synchornous-counters-/assets/120194155/b13d29c3-c564-40c5-86b1-09bf0ab36f43)
 
 ### Down Counter
-![image](https://github.com/22008837/Exp-7-Synchornous-counters-/assets/120194155/b3791cd6-6b8a-46ff-9448-23915bfebca8)
+![image](https://github.com/22008837/Exp-7-Synchornous-counters-/assets/120194155/e7251ba2-0965-4651-a5ff-9520050b71e6)
 
 ### TIMING DIGRAMS FOR COUNTER  
 ### Up Counter
-![image](https://github.com/22008837/Exp-7-Synchornous-counters-/assets/120194155/ef1b7f21-360e-4312-a4b2-3cee31867c98)
+![image](https://github.com/22008837/Exp-7-Synchornous-counters-/assets/120194155/f5aa1392-aea5-4dd6-8d4f-e4d048570a4a)
+
 ### Down Counter
-![image](https://github.com/22008837/Exp-7-Synchornous-counters-/assets/120194155/4a54b074-1ade-4644-83e9-dbf584582ce1)
+![image](https://github.com/22008837/Exp-7-Synchornous-counters-/assets/120194155/da89fad3-8184-4f81-a098-b2f88d818495)
 
 ### TRUTH TABLE 
 ### up Counter
-![image](https://github.com/22008837/Exp-7-Synchornous-counters-/assets/120194155/b5cd45c7-1da9-4c48-9c32-fd84f9d00f6b)
-### Down Counter
-![image](https://github.com/22008837/Exp-7-Synchornous-counters-/assets/120194155/63df702c-8709-411c-898b-d614ec641f31)
+![image](https://github.com/22008837/Exp-7-Synchornous-counters-/assets/120194155/47d8edcb-8b17-47e3-8b6b-20d545f3dae2)
+### down counter
+![image](https://github.com/22008837/Exp-7-Synchornous-counters-/assets/120194155/00892c4e-5dc2-400a-b7fc-5f468a4f9c4e)
 
 ### RESULTS 
 Thus Synchornous counters up counter and down counter circuit are studied and the truth table for different logic gates are verified.
